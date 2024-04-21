@@ -2,13 +2,13 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".view.BeritaFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="428dp">
+        android:layout_width="410dp"
+        android:layout_height="430dp">
 
         <ImageView
             android:id="@+id/imageBg"
@@ -20,39 +20,39 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/txtUsern"
+            android:id="@+id/txtUsernameH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
             android:text="Username"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtJudul" />
+            app:layout_constraintTop_toBottomOf="@+id/txtJudulH" />
 
         <TextView
-            android:id="@+id/txtDes"
-            android:layout_width="242dp"
-            android:layout_height="80dp"
+            android:id="@+id/txtDesH"
+            android:layout_width="379dp"
+            android:layout_height="93dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtUsern" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUsernameH" />
 
         <Button
             android:id="@+id/btnDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="301dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
             android:text="Read"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesH" />
 
         <TextView
-            android:id="@+id/txtJudul"
+            android:id="@+id/txtJudulH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
