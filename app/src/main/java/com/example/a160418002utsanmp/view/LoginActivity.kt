@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -13,42 +14,43 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.a160418002utsanmp.R
 
-class RegistrasiActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var txtUsername: EditText
     private lateinit var txtPassword: EditText
-    private lateinit var txtEmail: EditText
-    private lateinit var txtNamaDepan: EditText
-    private lateinit var txtNamaBelakang: EditText
-    private lateinit var btnRegistrasi: Button
+    private lateinit var btnLogin: Button
+    private lateinit var textViewCreateAccount: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registrasi)
+        setContentView(R.layout.activity_login)
 
         txtUsername = findViewById(R.id.txtUsername)
         txtPassword = findViewById(R.id.txtPassword)
-        txtEmail = findViewById(R.id.txtEmail)
-        txtNamaDepan = findViewById(R.id.txtNamaDepan)
-        txtNamaBelakang = findViewById(R.id.txtNamaBelakang)
-        btnRegistrasi = findViewById(R.id.btnRegis)
+        btnLogin = findViewById(R.id.btnRegis)
+        textViewCreateAccount = findViewById(R.id.textView4)
 
-        btnRegistrasi.setOnClickListener {
-            registerUser()
+        btnLogin.setOnClickListener {
+            loginUser()
+        }
+
+        textViewCreateAccount.setOnClickListener {
+            // Redirect to registration activity
+            startActivity(Intent(this, RegistrasiActivity::class.java))
         }
     }
 
-    private fun registerUser() {
+    private fun loginUser() {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://10.0.2.2/anmp_uts_service/register.php"
+        val url = "http://10.0.2.2/anmp_uts_service/login.php"
 
         val stringRequest = object : StringRequest(Request.Method.POST, url,
             Response.Listener<String> { response ->
-                // Handle successful registration response
-                Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show()
-                // You can display a toast or navigate to another activity
+                // Handle successful login response
+                Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                // You can navigate to another activity
                 Log.d("Response", response) // Log response
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish() // Menutup LoginActivity setelah berhasil login
             },
@@ -64,9 +66,6 @@ class RegistrasiActivity : AppCompatActivity() {
                 val params = HashMap<String, String>()
                 params["username"] = txtUsername.text.toString()
                 params["password"] = txtPassword.text.toString()
-                params["email"] = txtEmail.text.toString()
-                params["nama_depan"] = txtNamaDepan.text.toString()
-                params["nama_belakang"] = txtNamaBelakang.text.toString()
                 return params
             }
         }
@@ -74,4 +73,5 @@ class RegistrasiActivity : AppCompatActivity() {
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
     }
+
 }
