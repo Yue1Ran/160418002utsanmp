@@ -1,5 +1,4 @@
-package com.example.a160418002utsanmp.view
-
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +10,8 @@ class BeritaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,5 +20,7 @@ class BeritaFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_berita, container, false)
     }
 
-
+    fun openDetailBerita(view: View) {
+        // Implement logic to open detail berita activity
+    }
 }

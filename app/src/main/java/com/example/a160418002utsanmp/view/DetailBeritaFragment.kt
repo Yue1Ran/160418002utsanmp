@@ -29,9 +29,9 @@ class DetailBeritaFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val txtJudulDetail = view.findViewById<TextView>(R.id.txtJudulD)
-        val txtUsernameDetail = view.findViewById<TextView>(R.id.txtUsernameD)
-        val txtDesDetail = view.findViewById<TextView>(R.id.txtDesD)
+        val txtJudulDetail = view.findViewById<TextView>(R.id.txtJudulH)
+        val txtUsernameDetail = view.findViewById<TextView>(R.id.txtUsername)
+        val txtDesDetail = view.findViewById<TextView>(R.id.txtDesH)
 
 
     }

@@ -46,13 +46,21 @@ class LoginActivity : AppCompatActivity() {
 
         val stringRequest = object : StringRequest(Request.Method.POST, url,
             Response.Listener<String> { response ->
-                // Handle successful login response
-                Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
-                // You can navigate to another activity
-                Log.d("Response", response) // Log response
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish() // Menutup LoginActivity setelah berhasil login
+                // Cek apakah respons adalah "Login berhasil"
+                if (response.trim() == "Login berhasil") {
+                    // Handle successful login response
+                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    // You can navigate to MainActivity
+                    Log.d("Response", response) // Log response
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish() // Menutup LoginActivity setelah berhasil login
+                } else {
+                    // Respons tidak sesuai dengan yang diharapkan, handle sesuai kebutuhan
+                    // Contoh: menampilkan pesan kesalahan
+                    Toast.makeText(this, "Respons tidak sesuai: $response", Toast.LENGTH_SHORT).show()
+                    Log.e("Response", "Respons tidak sesuai: $response")
+                }
             },
             Response.ErrorListener { error ->
                 // Handle error
