@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/registrasiActivity"
-        android:name="com.example.a160418002utsanmp.RegistrasiActivity"
+        android:name="com.example.a160418002utsanmp.view.RegistrasiActivity"
         android:label="activity_registrasi"
         tools:layout="@layout/activity_registrasi" />
 </navigation>
