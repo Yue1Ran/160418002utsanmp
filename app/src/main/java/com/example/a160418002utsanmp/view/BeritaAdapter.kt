@@ -4,10 +4,12 @@ import android.icu.text.NumberFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a160418002utsanmp.R
 import com.example.a160418002utsanmp.model.Berita
+import com.squareup.picasso.Picasso
 
 class BeritaAdapter (
     private val beritas: MutableList<Berita> = mutableListOf(),
@@ -16,11 +18,13 @@ class BeritaAdapter (
     class ViewHolder(
         view: View,
     ) : RecyclerView.ViewHolder(view) {
+        val imageview : ImageView
         val textjudul: TextView
         val textUsername: TextView
         val textDes: TextView
 
         init {
+            imageview = view.findViewById(R.id.imageBg)
             textjudul = view.findViewById(R.id.txtJudulH)
             textUsername = view.findViewById(R.id.txtUsernameH)
             textDes = view.findViewById(R.id.txtDesH)
@@ -40,6 +44,7 @@ class BeritaAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.apply {
             val berita = beritas[position]
+            Picasso.get().load(berita.image).into(imageview)
             textjudul.text =
                berita.judul
             textUsername.text =
